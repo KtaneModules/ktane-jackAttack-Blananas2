@@ -1194,7 +1194,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278444384
@@ -1215,7 +1215,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1236,7 +1236,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1257,7 +1257,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1278,7 +1278,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278205723
@@ -1299,7 +1299,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278238966
@@ -1320,7 +1320,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -1341,7 +1341,7 @@ TextMesh:
   m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 1650af6fa0858ec49811629ae2ef3bad, type: 3}
+  m_Font: {fileID: 12800000, guid: cd9edcf8ac66bbb4b980b5350c16c358, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   Children:
   - {fileID: 114070958577608192}
   IsPassThrough: 0
-  ChildRowLength: 0
+  ChildRowLength: 1
   Highlight: {fileID: 114570430299588062}
   SelectableColliders: []
   DefaultSelectableIndex: 0
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   - {r: 0.105882354, g: 0.23921569, b: 0, a: 1}
   - {r: 0, g: 0, b: 0, a: 1}
   bigWordOrder: 0000000001000000020000000300000004000000050000000600000007000000
-  smallWordOrder: 000000000100000002000000030000000400000005000000
+  smallWordOrder: 0000000001000000020000000300000004000000050000000600000007000000
 --- !u!114 &114233238003136118
 MonoBehaviour:
   m_ObjectHideFlags: 1
