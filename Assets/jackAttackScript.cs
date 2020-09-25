@@ -24,7 +24,7 @@ public class jackAttackScript : MonoBehaviour {
     int missedStages = 0;
     float time = 0;
     int startTime = 2;
-    float sectionTime = 2.2f;
+    float sectionTime = 2.5f;
     bool strikeGet = false;
     bool animating = false;
     bool playedTheDamnSound = false;
@@ -36,7 +36,7 @@ public class jackAttackScript : MonoBehaviour {
     float otherTime = 0;
     bool canClick = true;
     public List<int> bigWordOrder = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
-    public List<int> smallWordOrder = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+    public List<int> smallWordOrder = new List<int> { 0, 1, 2, 3, 4, 5, 6 }; //for future self, never EVER set shit to public or else Unity becomes a bitch
     KMAudio.KMAudioRef soundEffect;
 
     //Logging
@@ -53,7 +53,7 @@ public class jackAttackScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        clue = UnityEngine.Random.Range(0, 25);
+        clue = UnityEngine.Random.Range(0, 10);
         anchor = 65 * clue;
         texts[0].text = PhraseList.phrases[anchor];
         Debug.LogFormat("[Jack Attack #{0}] The clue is: \"{1}\"", moduleId, PhraseList.phrases[anchor].Replace("\n", " "));
@@ -308,11 +308,6 @@ public class jackAttackScript : MonoBehaviour {
                     texts[1].text = PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 1)];
                     texts[2].text = PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[6])];
                 }
-				else if (time < (sectionTime * 8) + startTime)
-                {
-                    texts[1].text = PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 1)];
-                    texts[2].text = PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[7])];
-                }
                 else
                 {
                     //MISS
@@ -321,6 +316,8 @@ public class jackAttackScript : MonoBehaviour {
                     stage += 1;
                     missedStages += 1;
                     bigWordOrder.Add(bigWordOrder[(stage - 1) % 8]);
+                    soundEffect.StopSound();
+                    soundEffect = Audio.PlaySoundAtTransformWithRef(string.Format("Chunk {0}", stage), transform);
                     Debug.LogFormat("[Jack Attack #{0}] Stage {1} missed. Current misses: {2}", moduleId, stage - 1, missedStages);
                     Debug.LogFormat("[Jack Attack #{0}] The big word is: \"{1}\"", moduleId, PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 1)].Replace("\n", " "));
                     Debug.LogFormat("[Jack Attack #{0}] The correct small word is: \"{1}\"", moduleId, PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9)].Replace("\n", " "));
@@ -396,7 +393,7 @@ public class jackAttackScript : MonoBehaviour {
     bool TwitchPlaysActive;
     private bool isInputValid(string sn)
     {
-        if(sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[0])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[1])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[2])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[3])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[4])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[5])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[6])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[7])]))
+        if(sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[0])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[1])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[2])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[3])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[4])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[5])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[6])]))
         {
             return true;
         }
