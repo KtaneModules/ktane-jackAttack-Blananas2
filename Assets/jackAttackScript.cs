@@ -366,7 +366,7 @@ public class jackAttackScript : MonoBehaviour {
                 texts[2].text = PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[counter])];
                 yield return new WaitForSeconds(1f);
                 counter++;
-                if (counter == 8)
+                if (counter == 7)
                 {
                     counter = 0;
                 }
