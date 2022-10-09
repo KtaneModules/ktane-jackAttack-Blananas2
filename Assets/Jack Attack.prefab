@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 114197131771334014}
   - component: {fileID: 82802565146295048}
   m_Layer: 0
-  m_Name: Template
+  m_Name: Jack Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

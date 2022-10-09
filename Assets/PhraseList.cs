@@ -1,4 +1,4 @@
-public static class PhraseList
+﻿public static class PhraseList
 {
     public static string[] phrases =
     {
@@ -66,7 +66,7 @@ public static class PhraseList
         "Simon's Ultimate Showdown", "Simon Says", "❖", "Simon Stores", "Simon's Stages", "Simon Sings", "Simon Sends", "Simon Stops",
         "Simon Says", "❖", "Simon Stores", "Simon's Stages", "Simon Sings", "Simon Sends", "Simon Stops", "Simon's Ultimate Showdown",
         "Take This!",
-        "Elixir", "Use if Short", "Never Propser", "Winner", "See into the Future", "Night light", "Sunlight", "Powered",
+        "Elixir", "Use if Short", "Never Prosper", "Winner", "See into the Future", "Night light", "Sunlight", "Powered",
         "Potion", "Stepladder", "Cheat Code", "Trophy", "Crystal Ball", "Moonstone", "Sunstone", "Battery",
         "Stepladder", "Cheat Code", "Trophy", "Crystal Ball", "Moonstone", "Sunstone", "Battery", "Potion",
         "Cheat Code", "Trophy", "Crystal Ball", "Moonstone", "Sunstone", "Battery", "Potion", "Stepladder",
@@ -75,7 +75,7 @@ public static class PhraseList
         "Moonstone", "Sunstone", "Battery", "Potion", "Stepladder", "Cheat Code", "Trophy", "Crystal Ball",
         "Sunstone", "Battery", "Potion", "Stepladder", "Cheat Code", "Trophy", "Crystal Ball", "Moonstone",
         "Forget Me Not",
-        "Bit Bit", "Crank the Lever", "Primal Rage", "Hang Them", "Literature Club", "Colorblind Mode", "R’lyehian", "Balanced Ternary",
+        "Bit Bit", "Crank the Lever", "Primal Rage", "Hang Them", "Literature Club", "Colorblind Mode", "R'lyehian", "Balanced Ternary",
         "Two Bits", "Silly Slots", "Hunting", "Mafia", "Poetry", "Visual Impairment", "Necronomicon", "Simon Stores",
         "Silly Slots", "Hunting", "Mafia", "Poetry", "Visual Impairment", "Necronomicon", "Simon Stores", "Two Bits",
         "Hunting", "Mafia", "Poetry", "Visual Impairment", "Necronomicon", "Simon Stores", "Two Bits", "Silly Slots",
