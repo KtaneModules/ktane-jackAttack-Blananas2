@@ -383,7 +383,7 @@ public class jackAttackScript : MonoBehaviour {
         if (TwitchPlaysActive == true)
         {
             cycleInstead = true;
-            sectionTime = 2800;
+            sectionTime = 30f;
             cycle = StartCoroutine(wordCycle());
         }
         Debug.LogFormat("[Jack Attack #{0}] Twitch Plays mode: {1}", moduleId, TwitchPlaysActive);
@@ -394,30 +394,25 @@ public class jackAttackScript : MonoBehaviour {
     private bool isInputValid(string sn)
     {
         if(sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[0])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[1])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[2])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[3])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[4])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[5])]) || sn.EqualsIgnoreCase(PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9) + (8 * smallWordOrder[6])]))
-        {
             return true;
-        }
         return false;
     }
 
     #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"!{0} start [Starts the module] | !{0} submit <small phrase> [Submits the given 'small phrase' when it appears] | The module is slower to make it possible for TP";
+    private readonly string TwitchHelpMessage = @"!{0} start [Starts the module] | !{0} submit <small phrase> [Submits the given 'small phrase' when it appears] | On Twitch Plays the module will cycle through the small phrases for around 30 seconds before handing out a miss";
     #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
         if (Regex.IsMatch(command, @"^\s*start\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
         {
-            if(stage == 0)
+            if (stage == 0)
             {
                 yield return null;
                 Button.OnInteract();
-                yield break;
             }
             else
-            {
                 yield return "sendtochaterror I'm already cycling through small phrases! (I've been started already)";
-                yield break;
-            }
+            yield break;
         }
         string[] parameters = command.Split(' ');
         if (Regex.IsMatch(parameters[0], @"^\s*submit\s*$", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant))
@@ -425,10 +420,8 @@ public class jackAttackScript : MonoBehaviour {
             if (parameters.Length >= 2)
             {
                 string phrase = "";
-                for(int i = 1; i < parameters.Length; i++)
-                {
-                    phrase += parameters[i]+" ";
-                }
+                for (int i = 1; i < parameters.Length; i++)
+                    phrase += parameters[i] + " ";
                 phrase = phrase.Remove(phrase.Length-1);
                 if (stage == 0)
                 {
@@ -442,9 +435,7 @@ public class jackAttackScript : MonoBehaviour {
                     Button.OnInteract();
                 }
                 else
-                {
                     yield return "sendtochaterror That small phrase does not appear in the cycle of small phrases!";
-                }
             }
             yield break;
         }
@@ -452,18 +443,17 @@ public class jackAttackScript : MonoBehaviour {
 
     IEnumerator TwitchHandleForcedSolve()
     {
-        while (animating) { yield return new WaitForSeconds(0.1f); }
+        while (strikeGet) { yield return true; }
         if (stage == 0)
         {
             Button.OnInteract();
             yield return new WaitForSeconds(0.1f);
         }
+        while (animating) { yield return null; }
         for (int i = correctStages; i < 5; i++)
         {
             while (texts[2].text != PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9)])
-            {
-                yield return new WaitForSeconds(0.1f);
-            }
+                yield return null;
             Button.OnInteract();
             yield return new WaitForSeconds(0.1f);
         }
