@@ -345,6 +345,8 @@ public class jackAttackScript : MonoBehaviour {
                     stage += 1;
                     missedStages += 1;
                     bigWordOrder.Add(bigWordOrder[(stage - 1) % 8]);
+                    soundEffect.StopSound();
+                    soundEffect = Audio.PlaySoundAtTransformWithRef(string.Format("Chunk {0}", stage), transform);
                     Debug.LogFormat("[Jack Attack #{0}] Stage {1} missed. Current misses: {2}", moduleId, stage - 1, missedStages);
                     Debug.LogFormat("[Jack Attack #{0}] The big word is: \"{1}\"", moduleId, PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 1)].Replace("\n", " "));
                     Debug.LogFormat("[Jack Attack #{0}] The correct small word is: \"{1}\"", moduleId, PhraseList.phrases[anchor + (bigWordOrder[stage - 1] + 9)].Replace("\n", " "));
@@ -373,7 +375,7 @@ public class jackAttackScript : MonoBehaviour {
             }
             else
             {
-                yield return new WaitForSeconds(.1f);
+                yield return null;
             }
         }
     }
@@ -383,7 +385,7 @@ public class jackAttackScript : MonoBehaviour {
         if (TwitchPlaysActive == true)
         {
             cycleInstead = true;
-            sectionTime = 30f;
+            sectionTime = 45f;
             cycle = StartCoroutine(wordCycle());
         }
         Debug.LogFormat("[Jack Attack #{0}] Twitch Plays mode: {1}", moduleId, TwitchPlaysActive);
@@ -399,7 +401,7 @@ public class jackAttackScript : MonoBehaviour {
     }
 
     #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"!{0} start [Starts the module] | !{0} submit <small phrase> [Submits the given 'small phrase' when it appears] | On Twitch Plays the module will cycle through the small phrases for around 30 seconds before handing out a miss";
+    private readonly string TwitchHelpMessage = @"!{0} start [Starts the module] | !{0} submit <small phrase> [Submits the given 'small phrase' when it appears] | On Twitch Plays the module will cycle through the small phrases for around 45 seconds before handing out a miss";
     #pragma warning restore 414
     IEnumerator ProcessTwitchCommand(string command)
     {
